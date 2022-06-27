@@ -51,3 +51,44 @@ Book.prototype.printTitle = function () {
   console.log(this.title);
 };
 book.printTitle();
+
+//INHERITANCE
+
+class ITBook extends Book { // 1
+  constructor (title, pages, isbn, technology){
+    super(title, pages, isbn) // 2
+    this.technology = technology
+  }
+
+  printTechnology() {
+    console.log(this.technology)
+  }
+}
+
+const jsBook = new ITBook('Learning JS Algorithms', '200', '01519108', 'Javascript')
+console.log(jsBook.title)
+jsBook.printTechnology()
+jsBook.printTitle()
+
+//GETTERS AND SETTERS
+
+class Person {
+  constructor(name) {
+    this._name = name // 1
+  }
+
+  get name() {
+    return this._name
+  }
+
+  set name(value) {
+    this._name = value
+  }
+}
+
+let lotrChar = new Person('Frodo');
+console.log(lotrChar.name)
+lotrChar.name = 'Gandalf'
+console.log(lotrChar.name)
+lotrChar._name = 'Sam'
+console.log(lotrChar.name);
